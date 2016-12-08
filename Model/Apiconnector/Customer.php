@@ -224,14 +224,8 @@ class Customer
      */
     public function getLastReviewDate()
     {
-        if ($this->reviewCollection->getSize()) {
-            //@codingStandardsIgnoreStart
-            $createdAt = $this->reviewCollection->getSelect()
-                ->limit(1)
-                ->getFirstItem()
-                ->getCreatedAt();
-            //@codingStandardsIgnoreEnd
-            return $createdAt;
+        if (count($this->reviewCollection)) {
+            return $this->reviewCollection->getFirstItem()->getCreatedAt();
         }
 
         return '';
