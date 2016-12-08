@@ -26,7 +26,7 @@ class Transport extends \Zend_Mail_Transport_Smtp implements \Magento\Framework\
      * @param \Dotdigitalgroup\Email\Helper\Transactional $helper
      */
     public function __construct(
-        \Zend_Mail_Transport_Sendmail $sendmail,
+        Sendmail $sendmail,
         \Magento\Framework\Mail\MessageInterface $message,
         \Dotdigitalgroup\Email\Helper\Transactional $helper
     ) {
