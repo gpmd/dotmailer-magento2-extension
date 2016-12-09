@@ -155,6 +155,8 @@ class Subscriber
                 $email     = $subscriber->getEmail();
                 $storeId   = $this->getStoreIdForSubscriber($email, $subscribersData['items']);
 
+                if ($storeId === false) continue;
+                
                 $storeName = $this->storeManager->getStore($storeId)
                     ->getName();
 
