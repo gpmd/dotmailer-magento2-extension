@@ -484,9 +484,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
         //@codingStandardsIgnoreStart
         $client = $this->objectManager->create(
-            'Dotdigitalgroup\Email\Model\Apiconnector\Client',
-            ['username' => $apiUsername, 'password' => $apiPassword]
-        );
+           'Dotdigitalgroup\Email\Model\Apiconnector\Client'
+       );
+       $client->setApiUsername($apiUsername)
+           ->setApiPassword($apiPassword);
         //@codingStandardsIgnoreEnd
 
         return $client;
@@ -1401,7 +1402,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $cartLimit = $this->scopeConfig->getValue(
             \Dotdigitalgroup\Email\Helper\Config::XML_PATH_CONNECTOR_ABANDONED_CART_LIMIT
         );
-        
+
         return $cartLimit;
     }
 
